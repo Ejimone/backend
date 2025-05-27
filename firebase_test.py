@@ -63,7 +63,7 @@ def test_firebase_connection():
         
         print("\n🎉 All Firebase tests passed!")
         return True
-          except Exception as e:
+    except Exception as e:
         error_message = str(e)
         print(f"❌ Firebase test failed: {e}")
         

@@ -103,51 +103,51 @@ def test_model_operations():
     print("TESTING MODEL OPERATIONS")
     print("=" * 40)
     
-    try:
-        # Test Client model
+    try:        # Test Client model
         client = ClientModel(
-            name="Test User",
+            user_id="test_client_123",
+            username="testuser",
             email="test@example.com",
-            phone="1234567890",
+            full_name="Test User",
+            phone_number="1234567890",
+            task_name="Test Task",
             bio="Test bio"
         )
-        
-        # Save client
-        client_id = client.save()
+          # Save client
+        client_id = client.save_to_db()
         if client_id:
             print(f"✅ Client saved with ID: {client_id}")
         else:
             print("❌ Failed to save client")
             return False
-            
-        # Retrieve client
-        retrieved_client = ClientModel.get(client_id)
-        if retrieved_client:
+              # Retrieve client
+        retrieved_client_data = ClientModel.get_by_id("test_client_123")
+        if retrieved_client_data:
             print("✅ Client retrieved successfully")
-            print(f"   Name: {retrieved_client.name}")
-            print(f"   Email: {retrieved_client.email}")
+            print(f"   Name: {retrieved_client_data.get('full_name', 'N/A')}")
+            print(f"   Email: {retrieved_client_data.get('email', 'N/A')}")
         else:
             print("❌ Failed to retrieve client")
             
         # Update client
-        retrieved_client.bio = "Updated bio"
-        if retrieved_client.update():
+        if client.update('clients', 'test_client_123', {'bio': 'Updated bio'}):
             print("✅ Client updated successfully")
         else:
             print("❌ Failed to update client")
-            
-        # Test Seller model
+              # Test Seller model
         seller = SellerModel(
-            name="Test Seller",
+            user_id="test_seller_456",
+            username="testseller",
             email="seller@example.com",
-            phone="9876543210",
+            full_name="Test Seller",
+            phone_number="9876543210",
             business_name="Test Business",
             business_type="E-commerce",
-            products=["Product 1", "Product 2"],
-            payment_methods=["Credit Card", "PayPal"]
+            bio="Seller bio",
+            products=["Product 1", "Product 2"]
         )
         
-        seller_id = seller.save()
+        seller_id = seller.save_to_db()
         if seller_id:
             print(f"✅ Seller saved with ID: {seller_id}")
         else:
@@ -155,24 +155,24 @@ def test_model_operations():
             
         # Test Buyer model
         buyer = BuyerModel(
-            name="Test Buyer",
+            user_id="test_buyer_789",
+            username="testbuyer",
             email="buyer@example.com",
-            phone="5555555555",
-            preferred_categories=["Electronics", "Books"],
-            wishlist=["Item 1", "Item 2"],
-            loyalty_points=100
+            full_name="Test Buyer",
+            phone_number="5555555555",
+            bio="Buyer bio",
+            preferred_categories=["Electronics", "Books"]
         )
         
-        buyer_id = buyer.save()
+        buyer_id = buyer.save_to_db()
         if buyer_id:
             print(f"✅ Buyer saved with ID: {buyer_id}")
         else:
             print("❌ Failed to save buyer")
-            
-        # Clean up test data
-        ClientModel.delete(client_id)
-        SellerModel.delete(seller_id)
-        BuyerModel.delete(buyer_id)
+              # Clean up test data
+        client.delete('clients', 'test_client_123')
+        seller.delete('sellers', 'test_seller_456')
+        buyer.delete('buyers', 'test_buyer_789')
         print("✅ Test data cleaned up")
         
         print("\n🎉 All model tests passed!")
