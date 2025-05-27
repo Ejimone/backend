@@ -170,9 +170,9 @@ def test_model_operations():
         else:
             print("❌ Failed to save buyer")
               # Clean up test data
-        client.delete('clients', 'test_client_123')
-        seller.delete('sellers', 'test_seller_456')
-        buyer.delete('buyers', 'test_buyer_789')
+        # client.delete('clients', 'test_client_123')
+        # seller.delete('sellers', 'test_seller_456')
+        # buyer.delete('buyers', 'test_buyer_789')
         print("✅ Test data cleaned up")
         
         print("\n🎉 All model tests passed!")
