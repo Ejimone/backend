@@ -5,10 +5,10 @@ from datetime import datetime
 
 from pydantic import BaseModel # For ChatInitiateRequest
 
-from app.models.schemas import Chat, ChatCreate, Message, MessageCreate, User
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.routers.auth import oauth2_scheme # For dependency
-from app.core.security import decode_access_token # For decoding token
+from models.schemas import Chat, ChatCreate, Message, MessageCreate, User
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from routers.auth import oauth2_scheme # For dependency
+from core.security import decode_access_token # For decoding token
 
 router = APIRouter(prefix="/chats", tags=["Messaging"])
 

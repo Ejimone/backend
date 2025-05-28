@@ -2,10 +2,10 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from typing import List, Any, Dict
 from uuid import UUID, uuid4
 
-from app.models.schemas import WorkSubmission, WorkSubmissionCreate, User, Project, Contract
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.routers.auth import oauth2_scheme # For dependency
-from app.core.security import decode_access_token # For decoding token
+from models.schemas import WorkSubmission, WorkSubmissionCreate, User, Project, Contract
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from routers.auth import oauth2_scheme # For dependency
+from core.security import decode_access_token # For decoding token
 from datetime import datetime # For submission_date default
 
 router = APIRouter(prefix="/projects/{project_id}/submissions", tags=["Work Submissions"])

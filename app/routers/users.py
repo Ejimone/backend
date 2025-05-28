@@ -2,10 +2,10 @@ from fastapi import APIRouter, HTTPException, Depends
 from uuid import UUID
 from typing import Dict, Any, Union
 
-from app.models.schemas import User, ClientProfile, FreelancerProfile, ClientProfileCreate, FreelancerProfileCreate
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.routers.auth import oauth2_scheme # For dependency, might move to core.dependencies later
-from app.core.security import decode_access_token # For decoding token
+from models.schemas import User, ClientProfile, FreelancerProfile, ClientProfileCreate, FreelancerProfileCreate
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from routers.auth import oauth2_scheme # For dependency, might move to core.dependencies later
+from core.security import decode_access_token # For decoding token
 
 router = APIRouter(prefix="/users", tags=["Users"])
 

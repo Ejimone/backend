@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from uuid import UUID, uuid4
 
-from app.models.schemas import Project, ProjectCreate, User
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.routers.auth import oauth2_scheme # For dependency
-from app.core.security import decode_access_token # For decoding token
+from models.schemas import Project, ProjectCreate, User
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from routers.auth import oauth2_scheme # For dependency
+from core.security import decode_access_token # For decoding token
 from datetime import datetime
-
+from typing import Any, Dict, List
 router = APIRouter(prefix="/projects", tags=["Projects"])
 
 @router.post("/", response_model=Project, status_code=status.HTTP_201_CREATED)

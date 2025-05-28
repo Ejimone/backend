@@ -6,9 +6,9 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from uuid import uuid4
 from datetime import datetime
 
-from app.models.schemas import UserCreate, User
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.core.security import get_password_hash, verify_password, create_access_token, Token, decode_access_token
+from models.schemas import UserCreate, User
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from core.security import get_password_hash, verify_password, create_access_token, Token, decode_access_token
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 

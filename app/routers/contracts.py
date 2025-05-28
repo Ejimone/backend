@@ -2,10 +2,10 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from typing import List, Dict, Any # Added Dict, Any
 from uuid import UUID
 
-from app.models.schemas import Contract, User
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.routers.auth import oauth2_scheme # For dependency
-from app.core.security import decode_access_token # For decoding token
+from models.schemas import Contract, User
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from routers.auth import oauth2_scheme # For dependency
+from core.security import decode_access_token # For decoding token
 
 router = APIRouter(prefix="/contracts", tags=["Contracts"])
 

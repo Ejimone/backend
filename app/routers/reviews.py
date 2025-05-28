@@ -3,10 +3,10 @@ from typing import List, Dict, Any, Optional
 from uuid import UUID, uuid4
 from datetime import datetime
 
-from app.models.schemas import Review, ReviewCreate, User, Project, FreelancerProfile
-from app.db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
-from app.routers.auth import oauth2_scheme # For dependency
-from app.core.security import decode_access_token # For decoding token
+from models.schemas import Review, ReviewCreate, User, Project, FreelancerProfile
+from db.firebase_ops import get_firestore_ops_instance, FirestoreBaseModel
+from routers.auth import oauth2_scheme # For dependency
+from core.security import decode_access_token # For decoding token
 
 router = APIRouter(prefix="/reviews", tags=["Reviews"])
 
