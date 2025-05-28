@@ -78,34 +78,34 @@ class Buyer:
         return f"Buyer: {self.username} (ID: {self.user_id}, Categories: {', '.join(self.preferred_categories)})"
 
 # Example usage
-if __name__ == "__main__":
-    buyer1 = Buyer(
-        user_id="b001",
-        username="student_buyer",
-        email="student@example.com",
-        full_name="John Smith",
-        preferred_categories=["books", "electronics"]
-    )
-    print(buyer1)
-    buyer1.update_profile(bio="College student looking for textbooks and tech gadgets.")
-    buyer1.add_to_wishlist("math_textbook_123")
-    buyer1.add_to_wishlist("laptop_456")
-    buyer1.set_shipping_address({
-        "street": "123 College Ave",
-        "city": "University Town",
-        "state": "CA",
-        "zip_code": "12345"
-    })
+# if __name__ == "__main__":
+#     buyer1 = Buyer(
+#         user_id="b001",
+#         username="student_buyer",
+#         email="student@example.com",
+#         full_name="John Smith",
+#         preferred_categories=["books", "electronics"]
+#     )
+#     print(buyer1)
+#     buyer1.update_profile(bio="College student looking for textbooks and tech gadgets.")
+#     buyer1.add_to_wishlist("math_textbook_123")
+#     buyer1.add_to_wishlist("laptop_456")
+#     buyer1.set_shipping_address({
+#         "street": "123 College Ave",
+#         "city": "University Town",
+#         "state": "CA",
+#         "zip_code": "12345"
+#     })
     
-    # Place an order
-    order = {
-        "order_id": "ord_001",
-        "items": ["math_textbook_123"],
-        "total_amount": 50.0,
-        "seller_id": "s001"
-    }
-    buyer1.place_order(order)
+#     # Place an order
+#     order = {
+#         "order_id": "ord_001",
+#         "items": ["math_textbook_123"],
+#         "total_amount": 50.0,
+#         "seller_id": "s001"
+#     }
+#     buyer1.place_order(order)
     
-    print(f"Wishlist: {buyer1.wishlist}")
-    print(f"Total spent: ${buyer1.total_spent}")
-    print(f"Loyalty points: {buyer1.loyalty_points}")
+#     print(f"Wishlist: {buyer1.wishlist}")
+#     print(f"Total spent: ${buyer1.total_spent}")
+#     print(f"Loyalty points: {buyer1.loyalty_points}")
